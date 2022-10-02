@@ -55,7 +55,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .wrapper .dynamic-txts {
-  margin-left: -15px;
+  margin-left: 14px;
   height: 90px;
   line-height: 90px;
   overflow: hidden;
@@ -145,7 +145,7 @@ div.gradient {
   background: linear-gradient(to bottom, var(--landing-background), white, white);
 }
 
-@media (max-width: 750px) {
+@media (max-width: 870px) {
   .wrapper {
     flex-direction: column;
   }

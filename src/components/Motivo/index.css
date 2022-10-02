@@ -1,0 +1,22 @@
+div.iconUrl{
+    height: auto;
+}
+
+div.motivo{
+    display: flex;
+    margin-left: 12vw;
+    margin-right: 12vw;
+}
+
+div.text{
+    display: block;
+    margin-left: 15px;
+}
+
+@media (max-width: 500px) {
+    div.motivo{
+        display: block;
+        text-align: center;
+        justify-content: center;
+    }
+}

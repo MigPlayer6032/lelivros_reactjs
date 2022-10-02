@@ -4,13 +4,159 @@
 		<meta charset="UTF-8" />
 		<link rel="favicon" href="favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Lelivros</title>
 		<link
 			rel="stylesheet"
-			href="assets/css/bootstrap.min.css"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
 		/>
+		<style>*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		  }
+		  ::-webkit-scrollbar {
+			width: 10px;
+		  }
+		  ::-webkit-scrollbar-track {
+			background: #f1f1f1;
+		  }
+		  ::-webkit-scrollbar-thumb {
+			background: #888;
+		  }
+		  ::selection{
+		  background: rgb(0,123,255,0.3);
+		  }
+		  .navbar{
+			  position: fixed;
+			  width: 100%;
+			  z-index: 2;
+			  padding: 25px 0;
+			  transition: all 0.3s ease;
+			  background-color: black;
+			}
+			.navbar.sticky{
+			  background: #1b1b1b;
+			  padding: 10px 0;
+			  box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.1);
+			}
+			.navbar .content{
+			  display: flex;
+			  align-items: center;
+			  justify-content: space-between;
+			}
+			.navbar .logo a{
+			  color: #fff;
+			  font-size: 30px;
+			  font-weight: 600;
+			  text-decoration: none;
+			}
+			.navbar .menu-list{
+			  display: inline-flex;
+			}
+			.menu-list li{
+			  list-style: none;
+			}
+			.menu-list li a{
+			  color: #fff;
+			  font-size: 18px;
+			  font-weight: 500;
+			  margin-left: 25px;
+			  text-decoration: none;
+			  transition: all 0.3s ease;
+			}
+			.menu-list li a:hover{
+			  color: #007bff;
+			}
+			.icon{
+			  color: #fff;
+			  font-size: 20px;
+			  cursor: pointer;
+			  display: none;
+			}
+			.menu-list .cancel-btn{
+			  position: absolute;
+			  right: 30px;
+			  top: 20px;
+			}
+			@media (max-width: 1230px) {
+			  .content{
+				padding: 0 60px;
+			  }
+			}
+			@media (max-width: 1100px) {
+			  .content{
+				padding: 0 40px;
+			  }
+			}
+			@media (max-width: 900px) {
+			  .content{
+				padding: 0 30px;
+			  }
+			}
+			@media (max-width: 870px) {
+			  body.disabled{
+				overflow: hidden;
+			  }
+			  .icon{
+				display: block;
+			  }
+			  .icon.hide{
+				display: none;
+			  }
+			  .navbar .menu-list{
+				position: fixed;
+				height: 100vh;
+				width: 100%;
+				max-width: 400px;
+				left: -100%;
+				top: 0px;
+				display: block;
+				padding: 40px 0;
+				text-align: center;
+				background: #222;
+				transition: all 0.3s ease;
+			  }
+			  .navbar.show .menu-list{
+				left: 0%;
+			  }
+			  .navbar .menu-list li{
+				margin-top: 45px;
+			  }
+			  .navbar .menu-list li a{
+				font-size: 23px;
+				margin-left: -100%;
+				transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+			  }
+			  .navbar.show .menu-list li a{
+				margin-left: 0px;
+			  }
+			}
+			@media (max-width: 380px) {
+			  .navbar .logo a{
+				font-size: 27px;
+			  }
+			}</style>
 	</head>
 	<body>
+		<nav class="navbar">
+			<div class="content">
+			  <div class="logo">
+				<a href="#">CodingNepal</a>
+			  </div>
+			  <ul class="menu-list">
+				<div class="icon cancel-btn">
+				  <i class="fas fa-times"></i>
+				</div>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="#">Features</a></li>
+				<li><a href="#">Contact</a></li>
+			  </ul>
+			  <div class="icon menu-btn">
+				<i class="fas fa-bars"></i>
+			  </div>
+			</div>
+		  </nav>
 		<div id="root"></div>
 		<script type="module" src="/src/main.tsx"></script>
 		<script
@@ -23,10 +169,26 @@
 			crossorigin
 		></script>
 
-		<script
-			src="https://unpkg.com/react-bootstrap@next/dist/react-bootstrap.min.js"
-			crossorigin
-		></script>
-		<script src="assets/js/bootstrap.min.js"></script>
+		<script>
+			const body = document.querySelector("body");
+			const navbar = document.querySelector(".navbar");
+			const menuBtn = document.querySelector(".menu-btn");
+			const cancelBtn = document.querySelector(".cancel-btn");
+			menuBtn.addEventListener("click", () => {
+				navbar.classList.add("show");
+				menuBtn.classList.add("hide");
+				body.classList.add("disabled");
+			});
+			cancelBtn.addEventListener("click", () => {
+				body.classList.remove("disabled");
+				navbar.classList.remove("show");
+				menuBtn.classList.remove("hide");
+			});
+			window.addEventListener("scroll", () => {
+				this.scrollY > 20
+					? navbar.classList.add("sticky")
+					: navbar.classList.remove("sticky");
+			});
+		</script>
 	</body>
 </html>
