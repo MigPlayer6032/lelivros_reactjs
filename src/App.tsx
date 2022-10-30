@@ -1,11 +1,11 @@
-// import Menu from "./components/Menu";
+import Menu from "./components/Menu";
 import "./App.css";
 import Motivo from "./components/Motivo";
 
 export default function App() {
 	return (
 		<>
-			{/* <Menu /> */}
+			<Menu />
 			<div className="landing">
 				<div className="wrapper">
 					<div className="static-txt">Ler um livro é</div>

@@ -1,34 +1,34 @@
 import Brand from "../Brand";
-import './index.css';
+import styles from './styles.module.css';
 
 export default function Menu() {
 	return (
-		<nav className="navbar">
-			<div className="content">
+		<nav className={styles.navbar} id="navbar">
+			<div className={styles.content}>
 				<div className="logo">
-					<a href="./">
+					<a href="./" className={styles.logolink}>
 						<Brand height={30} width={30} />
 						LeLivros
 					</a>
 				</div>
-				<ul className="menu-list">
-					<div className="icon cancel-btn">
+				<ul className={styles.menulist}>
+					<div className={styles.cancelbtn}>
 						<i className="fas fa-times"></i>
 					</div>
-					<li>
-						<a href="#">Home</a>
+					<li className={styles.menuli}>
+						<a href="#" className={styles.menulink}>Home</a>
 					</li>
-					<li>
-						<a href="#">About</a>
+					<li className={styles.menuli}>
+						<a href="#" className={styles.menulink}>About</a>
 					</li>
-					<li>
-						<a href="#">Services</a>
+					<li className={styles.menuli}>
+						<a href="#" className={styles.menulink}>Services</a>
 					</li>
-					<li>
-						<a href="#">Features</a>
+					<li className={styles.menuli}>
+						<a href="#" className={styles.menulink}>Features</a>
 					</li>
-					<li>
-						<a href="#">Contact</a>
+					<li className={styles.menuli}>
+						<a href="#" className={styles.menulink}>Contact</a>
 					</li>
 				</ul>
 				<div className="icon menu-btn">

@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+package-lock.json
+yarn.lock
 
 node_modules
 dist
@@ -23,5 +25,9 @@ dist-ssr
 *.sln
 *.sw?
 
-build/
 dist/
+build/
+
+# Other
+bash.exe.stackdump
+deploy.bat
